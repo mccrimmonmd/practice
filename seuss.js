@@ -19,7 +19,7 @@ function coldColdWetDay(var sallyAndI) {
 coldColdWetDay(10)
 */
 
-function coldColdWetDay(sallyAndI) {
+(function coldColdWetDay(sallyAndI) {
   let [thingOne, thingTwo] = [
     function hopOnBall(bigRedWoodBox=[]) { 
       return sallyAndI 
@@ -46,4 +46,4 @@ function coldColdWetDay(sallyAndI) {
   console.log(shakeHands)
   console.log(thingTwo(shakeHands))
   console.log(sallyAndI)
-}(5)
+})(5)
