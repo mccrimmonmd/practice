@@ -1,25 +1,23 @@
-/* Pseudocode (TODO):
-function coldColdWetDay(var sallyAndI) {
+/* Pseudocode:
+function coldColdWetDay() {
+  var sallyAndI = 5
   function hopOnBall(var bigRedWoodBox) {
     if (not hasValue(bigRedWoodBox)) {
       bigRedWoodBox = []
     }
     if (sallyAndI > 0) {
-      return hopOnBall(bigRedWoodBox.concat(sallyAndI--))
+      return hopOnBall(bigRedWoodBox.append(sallyAndI--))
     }
     return bigRedWoodBox
   }
-  var thingOne = hopOnBall()
-  print(thingOne)
   print(sallyAndI)
-  var fish = 1
-  var thingTwo = thingOne.reduce((hat, cat) => hat[cat] + fish++, thingOne.slice()) // TODO
-  console.log(thingTwo)
+  ...TODO
 }
-coldColdWetDay(10)
+coldColdWetDay()
 */
 
-(function coldColdWetDay(sallyAndI) {
+(function coldColdWetDay() {
+  let sallyAndI = 5
   let [thingOne, thingTwo] = [
     function hopOnBall(bigRedWoodBox=[]) { 
       return sallyAndI 
@@ -45,5 +43,5 @@ coldColdWetDay(10)
   let shakeHands = thingOne()
   console.log(shakeHands)
   console.log(thingTwo(shakeHands))
-  console.log(sallyAndI)
-})(5)
+  console.log(sallyAndI ? 'I will show you another good game that I know!' : 'oh dear! you did not like our game...')
+})()
