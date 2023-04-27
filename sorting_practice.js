@@ -70,7 +70,7 @@ if (false) { // DEBUG
   let testString = 'malcolmmccrimmon'
   
   // let result = sortString(testString)
-  let result = sortString(testString, { alphabet: 'abcdefghijklmnopqrstuvwxyz })
+  let result = sortString(testString, { alphabet: 'abcdefghijklmnopqrstuvwxyz' })
   console.assert(testString.length === result.length, 'result string length')
   console.assert(testString.split('').sort().join('') === result, 'sorted')
   console.log(result)
