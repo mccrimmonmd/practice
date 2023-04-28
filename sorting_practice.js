@@ -1,9 +1,17 @@
-const sortString = (text, linear=false) => {
+const sortString = (text, type) => {
   if (text.length <= 1) return text
   const textArr = text.split('')
-  const sorted = linear 
-    ? linearSort(textArr, linear.alphabet, linear.sorted)
-    : mergeSort(textArr)
+  let sorted = []
+  if (type == null || type === 'mergeSort') {
+    sorted = mergeSort(textArr)
+  } else if (type.alphabet != null) {
+    sorted = linear(textArr, type.alphabet, type.sorted)
+  } else if (type === 'quickSort') {
+    sorted = quickSort(textArr)
+  } else {
+    console.log(`Unimplemented sorting algorithm '${type}'`)
+    return text
+  }
   return sorted.join('')
 }
 
@@ -104,7 +112,10 @@ if (false) { // DEBUG
   let testString = 'malcolmmccrimmon'
   
   // let result = sortString(testString)
-  let result = sortString(testString, { alphabet: 'abcdefghijklmnopqrstuvwxyz' })
+  let result = sortString(testString, 'quickSort')
+  // let result = sortString(testString, {
+  //   alphabet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  // })
   console.assert(testString.length === result.length, 'result string length')
   console.assert(testString.split('').sort().join('') === result, 'sorted')
   console.log(result)
