@@ -48,6 +48,40 @@ const mergeSort = (items) => {
   return conquer(divide(items))
 }
 
+const quickSort = (items) => {
+  const choosePivot = (subArray) => {
+    return {
+      pivot: subArray.splice(subArray.length - 1)[0],
+      arr: subArray
+    }
+  }
+  
+  const partition = (subArray) => {
+    let { pivot, arr } = choosePivot(subArray)
+    let left = []
+    let right = []
+    arr.forEach(item => {
+      if (item <= pivot) left.push(item)
+      else right.push(item)
+    })
+    return { left, pivot, right }
+  }
+  
+  const combine = ({ left, pivot, right }) => {
+    if (left.length > 1) {
+      left = sort(left)
+    }
+    if (right.length > 1) {
+      right = sort(right)
+    }
+    return left.concat(pivot).concat(right)
+  }
+  
+  const sort = (arr) => combine(partition(arr))
+  
+  return sort(items)
+}
+
 const linearSort = (items, alphabet, sorted=true) => {
   if (typeof alphabet === 'string') alphabet = alphabet.split('')
   if (!sorted) alphabet = mergeSort(alphabet)
