@@ -68,5 +68,8 @@ coldColdWetDay()
   let shakeHands = thingOne()
   console.log(shakeHands)
   console.log(thingTwo(shakeHands))
-  console.log(sallyAndI ? 'I will show you another good game that I know!' : 'Oh dear! You did not like our game...')
+  console.log(sallyAndI
+    ? 'I will show you another good game that I know!'
+    : 'Oh dear! You did not like our game...'
+  )
 })()
