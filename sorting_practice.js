@@ -93,17 +93,18 @@ const quickSort = (items) => {
 const linearSort = (items, alphabet, sorted=true) => {
   if (typeof alphabet === 'string') alphabet = alphabet.split('')
   if (!sorted) alphabet = mergeSort(alphabet)
-  const counts = new Array(alphabet.length).fill(0)
-  const indexOf = {}
-  alphabet.forEach((symbol, i) => indexOf[symbol] = i)
-  items.forEach(symbol => {
-    counts[indexOf[symbol]] += 1
-  })
-  let output = []
-  counts.forEach((count, i) => {
-    if (count > 0) output = output.concat(new Array(count).fill(alphabet[i]))
-  })
-  return output
+  
+  const counts = items.reduce((soFar, symbol) => {
+    soFar[symbol] = soFar.hasOwnProperty(symbol) ? soFar[symbol] + 1 : 1
+    return soFar
+  }, {})
+  
+  return alphabet.reduce((output, symbol) => {
+    if (counts.hasOwnProperty(symbol)) {
+      return output.concat(new Array(counts[symbol]).fill(symbol))
+    }
+    return output
+  }, [])
 }
 
 if (false) { // DEBUG
