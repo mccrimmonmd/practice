@@ -125,5 +125,6 @@ if (false) { // DEBUG
 module.exports = {
   sortString,
   mergeSort,
+  quickSort,
   linearSort,
 }
