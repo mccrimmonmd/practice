@@ -9,8 +9,8 @@ const search = (haystack, needle) => {
 const breadthFirstSearch = (haystack, needle, queue = []) => {
   if (haystack == null) return false
   if (haystack.value === needle) return true
-  queue.push(left)
-  queue.push(right)
+  queue.push(haystack.left)
+  queue.push(haystack.right)
   while (queue.length) {
     if (breadthFirstSearch(queue.shift(), needle, queue)) return true
   }
