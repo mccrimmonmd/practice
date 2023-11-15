@@ -52,3 +52,5 @@ const binarySearchTree = {
   },
   // TODO: remove (no balancing, balancing)
 }
+
+// TODO: heap stuff (max, heapsort?)
